@@ -18,11 +18,11 @@ export const deleteContact = id => {
   };
 };
 
-export const contactFilter = value => {
+export const contactFilter = filter => {
   return {
     type: types.CONTACT_FILTER,
     payload: {
-      value,
+      filter,
     },
   };
 };

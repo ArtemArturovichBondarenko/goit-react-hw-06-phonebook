@@ -34,7 +34,9 @@ const contactReducer = (state = initialState, { type, payload }) => {
       };
 
     case types.CONTACT_FILTER:
-      return { filter: [payload.value] };
+      return { 
+        ...state,
+        filter: payload.filter };
 
     default:
       return state;

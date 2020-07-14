@@ -32,11 +32,11 @@ const App = ({
   const filteredContacts = filterContacts(contacts, filter);
   return (
     <>
-    console.log(contactFilter)
+    console.log(filter)
       {/* <Notification onClick={this.changenotification} /> */}
       <h1 className={style.h1}>Phonebook</h1>
       <ContactForm onSubmit={handleAddContact} />
-      {contacts.length > 1 && <Filter filter={contactFilter} />}
+      {contacts.length > 1 && <Filter />}
       <ContactList contacts={filteredContacts} deleteContact={deleteContact} />
     </>
   );
@@ -50,7 +50,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   addContact: action.addContact,
   deleteContact: action.deleteContact,
-  contactFilter: action.contactFilter,
+  // contactFilter: action.contactFilter,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
