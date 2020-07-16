@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { contactFilter } from '../../without_toolkit/redux/contacts/action';
+import { contactFilter } from '../../with_toolkit/modules/contacts/action';
+// import { contactFilter } from '../../without_toolkit/redux/contacts/action';
 
 import style from '../ContactForm/ContactForm.module.css';
 const Filter = ({ filter, contactFilter }) => {
