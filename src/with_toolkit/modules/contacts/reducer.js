@@ -11,19 +11,28 @@ const initialState = {
   filter: '',
 };
 
-const addContact = (state, { payload: item }) => {
-  const searchExistingContact = (state, { payload: item }) => {
-    state.contacts.some(contact => contact.name === item.name);
+const addContact = (state, { payload: contact }) => {
+  const searchExistingContact = (state, payload) => {
+    state.contacts.some(contact => contact.name === payload.contact.name);
   };
+  // const searchExistingContact = (state, action) => {
+  //   state.contacts.some(contact => contact.name === action.payload.contact.name);
+  // };
   if (searchExistingContact === true) {
     alert(`is already exist`);
     return { ...state };
   }
   return {
     ...state,
-    contacts: [...state.contacts, item],
+    contacts: [...state.contacts, contact.contact],
   };
 };
+// payload: {
+//   contact: {
+//     id: uuidv4(),
+//     name: item.name,
+//     number: item.number,
+//   },
 
 const deleteContact = (state, { payload: id }) => {
   return {
@@ -38,7 +47,6 @@ const contactFilter = (state, { payload: filter }) => {
     filter: filter,
   };
 };
-
 
 const contactReducer = createReducer(initialState, {
   [actions.addContact.type]: addContact,

@@ -15,7 +15,7 @@ const contactReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case types.ADD_CONTACT:
       const searchExistingContact = state.contacts.some(
-        contact => contact.name === payload.item.name,
+        contact => contact.name === payload.contact.name,
       );
 
       if (searchExistingContact === true) {
@@ -24,7 +24,7 @@ const contactReducer = (state = initialState, { type, payload }) => {
       }
       return {
         ...state,
-        contacts: [...state.contacts, payload.item],
+        contacts: [...state.contacts, payload.contact],
       };
 
     case types.DELETE_CONTACT:
